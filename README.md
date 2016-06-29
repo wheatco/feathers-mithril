@@ -62,4 +62,4 @@ result() // => returns {id: 123, name: "Fluffums 2"}
 
 That’s right, the prop will automatically update (and the view will rerender) whenever the server info changes!
 
-There is an important caviat, which is you must call `.sync(false)` on the prop in the destructor of the component that called `.sync(true)` , otherwise we’ll get nasty memory leaks.
+There is an **important caviat**, which is you must call `.sync(false)` on the prop in the [destructor](http://mithril.js.org/mithril.html#destructors) of the component that called `.sync(true)` , otherwise we’ll get nasty memory leaks.
