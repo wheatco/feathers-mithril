@@ -1,0 +1,23 @@
+{
+  "name": "feathers-mithril",
+  "version": "1.0.0",
+  "description": "Connect feathers.js to mithril.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheatco/feathers-mithril.git"
+  },
+  "keywords": [
+    "mithril",
+    "feathers"
+  ],
+  "author": "Robert Lord",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wheatco/feathers-mithril/issues"
+  },
+  "homepage": "https://github.com/wheatco/feathers-mithril#readme"
+}
