@@ -1,7 +1,6 @@
 # feathers-mithril
 Connect feathers.js to mithril.js
 
-
 ## Installation
 
 Just run `npm install --save feathers-mithril`. You'll also need [feathers-reactive](https://github.com/feathersjs/feathers-reactive) in your project to use advanced `sync` functionality.
@@ -9,13 +8,14 @@ Just run `npm install --save feathers-mithril`. You'll also need [feathers-react
 To add to your client, just add it like you would any other feathers plugin:
 
 ```javascript
+var m = require('mithril');
 var fm = require('feathers-mithril');
 // ...a bit of code later...
 var app = feathers()
   .configure(feathers.socketio(socket))
   .configure(feathers.hooks())
   .configure(reactive(rxjs)) // you'll need this call to feathers-reactive for sync to work
-  .configure(fm())
+  .configure(fm(m))
   // followed by more app.configure calls here
 ```
 
