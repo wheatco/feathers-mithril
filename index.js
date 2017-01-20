@@ -27,7 +27,7 @@ const propify = function(m, func) {
       prop._sub = false;
       prop.sync = function(yes) {
         if (yes && !prop._sub) {
-          prop._sub = promise.subscribe(state => {
+          prop._sub = promise.subscribe(function(state) {
             m.startComputation();
             prop(state);
             m.endComputation();
@@ -52,7 +52,7 @@ module.exports = function(m) {
     this.mixins.push(function(service) {
       const app = this;
       var mixin = {};
-      app.methods.forEach(method => {
+      app.methods.forEach(function(method) {
         if(typeof service[method] === 'function') {
           mixin[method] = propify(m, method);
         }
