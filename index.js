@@ -1,4 +1,4 @@
-// wrap all feathers service requsets with this function
+// wrap all feathers service requests with this function
 // it returns a combination prop/promise equivalent to m.request
 // this should be app.req.find, app.req.get, app.req.on, etc?
 const propify = function (m, func) {
@@ -10,18 +10,17 @@ const propify = function (m, func) {
       m.endComputation()
       return promise
     }
-    var deferred = m.deferred()
-    promise.then(
+    promise = promise.then(
       function (data) {
-        deferred.resolve(data)
         m.endComputation()
+        return Promise.resolve(data)
       },
       function (err) {
-        deferred.reject(err)
         m.endComputation()
+        return Promise.reject(err)
       }
     )
-    var prop = m.prop(deferred.promise)
+    var prop = m.prop(promise)
 
     if (promise.subscribe) {
       prop._sub = false
