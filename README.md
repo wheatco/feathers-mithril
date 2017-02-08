@@ -9,13 +9,14 @@ To add to your client, just add it like you would any other feathers plugin:
 
 ```javascript
 var m = require('mithril');
+var stream = require('mithril/stream')
 var fm = require('feathers-mithril');
 // ...a bit of code later...
 var app = feathers()
   .configure(feathers.socketio(socket))
   .configure(feathers.hooks())
   .configure(reactive(rxjs)) // you'll need this call to feathers-reactive for sync to work
-  .configure(fm(m))
+  .configure(fm(m, stream))
   // followed by more app.configure calls here
 ```
 
