@@ -20,10 +20,10 @@ var propify = function (m, stream, func) {
       }
     )
     prop.then = function () {
-      promise.then.apply(promise, arguments)
+      return promise.then.apply(promise, arguments)
     }
     prop.catch = function () {
-      promise.catch.apply(promise, arguments)
+      return promise.catch.apply(promise, arguments)
     }
 
     if (promise.subscribe) {
